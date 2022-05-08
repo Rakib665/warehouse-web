@@ -6,6 +6,7 @@ import Login from './pages/Login/Login';
 import Blogs from './pages/Blogs/Blogs';
 import Header from './pages/Home/Header/Header';
 import Register from './pages/Register/Register';
+import Update from './pages/Update/Update';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='/inventory/:inventoryId' element={<Update></Update>}></Route>
       </Routes>
 
     </div>

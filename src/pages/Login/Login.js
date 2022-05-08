@@ -20,7 +20,7 @@ const Login = () => {
         const email = event.target.email.value;
         const password = event.target.password.value;
         await signInWithEmailAndPassword(email,password)
-        
+        navigate('/home')
 
 
 
