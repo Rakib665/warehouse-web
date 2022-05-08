@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
+import './Register.css'
 
-const Login = () => {
+const Register = () => {
     const [agree,setAgree] = useState('')
+    const handleRegister = () => {
 
-    const handleLogIn = async (event) =>{
-        const email = event.target.email.value;
-        const password = event.target.password.value;
-        console.log(email,password)
     }
     return (
-        <div className='mt-5 register-form'>
-              <h2 className='reg'>Please Login</h2>
-            <form onSubmit={handleLogIn}>
+        <div className='register-form mt-5'>
+            <h2 className='reg'>Please Register</h2>
+            <form onSubmit={handleRegister}>
+                <input type="text" name="name" id="" placeholder='Your Name' />
 
                 <input type="email" name="email" id="" placeholder='Email Address' required />
 
                 <input type="password" name="password" id="" placeholder='Password' required />
                 <input onClick={() => setAgree(!agree)} type="checkbox" name="terms" id="terms" />
-                <label className='mx-3 text-secondary' htmlFor="terms">Accept All Terms and Conditions</label>
+                {/* <label className={agree ? 'ps-2': 'ps-2 text-danger'} htmlFor="terms">Accept Genius Car Terms and Conditions</label> */}
+                <label className={`ps-2 ${agree ? '' : 'text-danger'}`} htmlFor="terms">Accept Genius Car Terms and Conditions</label>
                 <input
                     disabled={!agree}
                     className='w-50 mx-auto btn btn-primary mt-2'
@@ -28,4 +28,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
