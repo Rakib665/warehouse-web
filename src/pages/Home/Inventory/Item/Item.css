@@ -1,0 +1,6 @@
+.each-item{
+    border: 2px solid gray;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
