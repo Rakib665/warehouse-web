@@ -8,10 +8,12 @@ import Header from './pages/Home/Header/Header';
 import Register from './pages/Register/Register';
 import Update from './pages/Update/Update';
 import RequireAuth from './pages/RequireAuth/RequireAuth';
+import ManageInventory from './pages/ManageInventory/ManageInventory';
+import AddItem from './pages/AddItem/AddItem';
 
 
 function App() {
-  const shouldRedirect = true
+  // const shouldRedirect = true
   return (
     <div >
       <Header></Header>
@@ -23,14 +25,12 @@ function App() {
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/inventory/:inventoryId' element={
           <RequireAuth>
-            {/* {shouldRedirect 
-            ? <Navigate replace to="/home" />
-
-            : <Update></Update>
-            } */}
+           
             <Update></Update>
           </RequireAuth>
         }></Route>
+        <Route path='/manage' element={<ManageInventory></ManageInventory>}></Route>
+        <Route path='/additem' element={<AddItem></AddItem>}></Route>
       </Routes>
 
     </div>
