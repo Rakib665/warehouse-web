@@ -25,17 +25,17 @@ const AddItem = () => {
             <h2 className='text-secondary'>ADD NEW ITEM</h2>
             <div>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                <input className='mb-3' placeholder='Name'   {...register("name")} />
+                <input className='mb-3 w-50' placeholder='Name'   {...register("name")} />
                 <br />
-                <input className='mb-3' placeholder='Supplier Name'   {...register("supplier_name")} />
+                <input className='mb-3 w-50' placeholder='Supplier Name'   {...register("supplier_name")} />
                 <br />
-                <input className='mb-3' placeholder='Description' {...register("description")} />
+                <input className='mb-3 w-50' placeholder='Description' {...register("description")} />
                 <br />
-                <input className='mb-3' placeholder='Price' type="number" {...register("price")} />
+                <input className='mb-3 w-50' placeholder='Price' type="number" {...register("price")} />
                 <br />
-                <input className='mb-3' placeholder='Photo Url' type="text" {...register("img")} />
+                <input className='mb-3 w-50' placeholder='Photo Url' type="text" {...register("img")} />
                 <br />
-                <input className='mb-3' placeholder='Quantity' type="text" {...register("quantity")} />
+                <input className='mb-3 w-50' placeholder='Quantity' type="text" {...register("quantity")} />
                 <br />
                 <input className='mb-3' type="submit" value='Add Service' />
 

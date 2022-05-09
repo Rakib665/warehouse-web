@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home/Home/Home';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Login from './pages/Login/Login';
 import Blogs from './pages/Blogs/Blogs';
 import Header from './pages/Home/Header/Header';
@@ -10,6 +10,8 @@ import Update from './pages/Update/Update';
 import RequireAuth from './pages/RequireAuth/RequireAuth';
 import ManageInventory from './pages/ManageInventory/ManageInventory';
 import AddItem from './pages/AddItem/AddItem';
+import MyItems from './pages/MyItems/MyItems';
+import NotFound from './pages/NotFound/NotFound';
 
 
 function App() {
@@ -31,6 +33,8 @@ function App() {
         }></Route>
         <Route path='/manage' element={<ManageInventory></ManageInventory>}></Route>
         <Route path='/additem' element={<AddItem></AddItem>}></Route>
+        <Route path='/myitem' element={<MyItems></MyItems>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
 
     </div>

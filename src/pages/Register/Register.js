@@ -3,16 +3,37 @@ import './Register.css'
 import auth from '../../firebase.init';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import SocialLogin from '../SocialLogin/SocialLogin';
+import Loading from '../Loading/oading';
 
 
 const Register = () => {
     const [agree,setAgree] = useState('')
+    const location = useLocation()
     const navigate = useNavigate()
     const [
         createUserWithEmailAndPassword,
+        user, loading, error
         
       ] = useCreateUserWithEmailAndPassword(auth);
+
+      let from = location.state?.from?.pathname || "/";
+
+    
+    let errorElement;
+
+    if(loading ){
+        return <Loading></Loading>
+    }
+
+    if (error ) {
+        errorElement = <p className='text-danger'>Error: {error?.message}</p>
+    }
+
+    if (user ) {
+        navigate(from, { replace: true });
+    }
     const handleRegister = async(event) => {
         event.preventDefault()
         const name = event.target.name.value;
@@ -41,7 +62,9 @@ const Register = () => {
                     type="submit"
                     value="Register" />
             </form>
+            {errorElement}
             <p>Already have an account? <Link to="/login" className='text-primary pe-auto text-decoration-none'>Please Login</Link> </p>
+            <SocialLogin></SocialLogin>
 
         </div>
     );
