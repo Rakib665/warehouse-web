@@ -4,24 +4,24 @@ import { Link, useParams } from 'react-router-dom';
 const Update = () => {
     const { inventoryId } = useParams()
     const [update, setUpdate] = useState({})
-    const [reload, setReload] = useState(true)
+    // const [reload, setReload] = useState(true)
 
     useEffect(() => {
         fetch(`https://sleepy-springs-76170.herokuapp.com/inventory/${inventoryId}`
         )
             .then(res => res.json())
             .then(data => setUpdate(data))
-    }, [inventoryId, reload])
+    }, [inventoryId])
 
 
 
     const deliveryBtn = (event) => {
 
-        let quantity = `${update.quantity}` - 1
+        let quantityUpdate = `${update.quantity}` - 1
 
-        const updateQuantity = { quantity }
+        const updateQuantity = {quantity: quantityUpdate }
 
-        fetch(`http://localhost:5000/inventory/${inventoryId}`, {
+        fetch(`https://sleepy-springs-76170.herokuapp.com/inventory/${inventoryId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -32,6 +32,7 @@ const Update = () => {
             .then(response => response.json())
             .then(result => {
                 alert('quantity update successfully')
+                window.location.reload()
 
             })
 
@@ -42,7 +43,7 @@ const Update = () => {
         const restock = parseInt(event.target.restock.value);
         const quantity = parseInt(`${update.quantity}`) +restock
         const updateQuantity = {quantity}
-        fetch(`http://localhost:5000/inventory/${inventoryId}`, {
+        fetch(`https://sleepy-springs-76170.herokuapp.com/inventory/${inventoryId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -53,6 +54,8 @@ const Update = () => {
             .then(response => response.json())
             .then(result => {
                 alert('Restock update successfully')
+                window.location.reload()
+
 
             })
     }

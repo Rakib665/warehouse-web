@@ -20,7 +20,7 @@ const ManageInventory = () => {
             }
 
            <div className='w-50 mx-auto'>
-           <Link to='/additem' >Add Item</Link>
+           <Link to='/additem' ><button className='btn btn-secondary w-50'>Add Item</button></Link>
            </div>
         </div>
     );

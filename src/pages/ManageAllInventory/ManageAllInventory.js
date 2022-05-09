@@ -25,7 +25,6 @@ const ManageAllInventory = ({ manageItem }) => {
     }
     return (
         <div>
-            {/* <li>{supplier_name}</li> */}
             <Table>
                 <thead>
                     <tr>
