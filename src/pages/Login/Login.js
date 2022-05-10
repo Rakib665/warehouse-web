@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendEmailVerification, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../Loading/oading';
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -21,7 +21,9 @@ const Login = () => {
         error
     ] = useSignInWithEmailAndPassword(auth)
 
-    if (loading) {
+    const [sendEmailVerification, sending] = useSendEmailVerification(auth)
+
+    if (loading || sending) {
         return <Loading></Loading>
     }
     if (error) {
@@ -44,6 +46,10 @@ const Login = () => {
 
 
     }
+
+    // const sendEmailVerify = () => {
+
+    // }
     return (
         <div className='mt-5 register-form'>
             <h2 className='reg'>Please Login</h2>
@@ -62,6 +68,11 @@ const Login = () => {
             </form>
             {errorElement}
             <p>If you are a new user? <Link to="/register" className='text-primary pe-auto text-decoration-none' >Please Register</Link> </p>
+            <p>If email is not verify? <button className='btn btn-link text-primary pe-auto text-decoration-none' onClick={async () => {
+          await sendEmailVerification();
+          alert('Sent email');
+        }}>Verify Email</button> </p>
+
             <SocialLogin> </SocialLogin>
         </div>
     );
