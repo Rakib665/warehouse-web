@@ -68,6 +68,7 @@ const Update = () => {
 
             <div className='mt-4 ms-3'>
                 <h2 className='text-secondary mt-4'>Name: {update.name}</h2>
+                <h4 className='text-secondary'>Supplier Name: {update.supplier_name}</h4>
                 <h2 className='text-secondary'>Quantity: {update.quantity}</h2>
                 <h3 className='text-secondary'>Price: {update.price}$</h3>
                 <p className='text-secondary'> Description: {update.description} </p>
