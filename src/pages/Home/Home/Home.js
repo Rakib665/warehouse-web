@@ -3,6 +3,7 @@ import Header from '../Header/Header';
 import Banner from '../Banner/Banner'
 import Inventory from '../Inventory/Inventory';
 import WhyChoosingUs from '../../WhyChoosingUs/WhyChoosingUS'
+import Footer from '../../Footer/Footer';
 // import Testimonials from '../../Testimonials/Testimonials';
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
             <Inventory></Inventory>
             <WhyChoosingUs></WhyChoosingUs>
             {/* <Testimonials></Testimonials> */}
+            <Footer></Footer>
         </div>
     );
 };
