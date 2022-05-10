@@ -12,7 +12,7 @@ const ManageAllInventory = ({ manageItem }) => {
     const deleteItem = (id) => {
         const proceed = window.confirm('are you sure?')
         if (proceed) {
-            fetch(`http://localhost:5000/inventory/${_id}`, {
+            fetch(`https://sleepy-springs-76170.herokuapp.com/inventory/${_id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -28,6 +28,7 @@ const ManageAllInventory = ({ manageItem }) => {
             <Table>
                 <thead>
                     <tr>
+                        <th>Item Image</th>
                         <th>Item Name</th>
                         <th>Item QUantity</th>
                         <th>Item supplier Name</th>
@@ -36,6 +37,13 @@ const ManageAllInventory = ({ manageItem }) => {
                 </thead>
                 <tbody>
                     <tr>
+                        <td><img
+                                            className='rounded-pill'
+                                            src={img}
+                                            alt=""
+                                            style={{ width: "45px", height: "45px" }}
+
+                                        /></td>
                         <td>{name}</td>
                         <td>{quantity}</td>
                         <td>{supplier_name}</td>
