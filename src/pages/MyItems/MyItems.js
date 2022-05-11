@@ -17,10 +17,13 @@ const MyItems = () => {
     email = user?.email
     console.log(email)
     useEffect(() => {
-        fetch(`http://localhost:5000/inventory`)
+        fetch(`https://sleepy-springs-76170.herokuapp.com/inventory?email=${email}`)
             .then(res => res.json())
-            .then(data => setItems(data))
-    }, [email])
+            .then(data => {
+               const datas= data.filter(item => item.email === email)
+               setItems(datas)
+            })
+    }, [])
 
     const handleDeleteItem = id => {
         // console.log(id)
