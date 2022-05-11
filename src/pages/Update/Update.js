@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Update = () => {
     const { inventoryId } = useParams()
@@ -31,7 +34,7 @@ const Update = () => {
         })
             .then(response => response.json())
             .then(result => {
-                alert('quantity update successfully')
+                toast('quantity update successfully')
                 window.location.reload()
 
             })

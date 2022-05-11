@@ -16,13 +16,13 @@ const MyItems = () => {
     email = user?.email
     // console.log(email)
     useEffect(() => {
-        fetch(`https://sleepy-springs-76170.herokuapp.com/myItems`)
+        fetch(`http://localhost:5000/myItems?email=${email}`)
             .then(res => res.json())
             .then(data => setItems(data))
     }, [email])
 
     const handleDeleteItem = id => {
-        console.log(id)
+        // console.log(id)
 
         const proceed = window.confirm('Are you sure?')
 

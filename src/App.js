@@ -12,10 +12,11 @@ import ManageInventory from './pages/ManageInventory/ManageInventory';
 import AddItem from './pages/AddItem/AddItem';
 import MyItems from './pages/MyItems/MyItems';
 import NotFound from './pages/NotFound/NotFound';
+import { ToastContainer } from 'react-toastify';
+
 
 
 function App() {
-  // const shouldRedirect = true
   return (
     <div >
       <Header></Header>
@@ -36,7 +37,7 @@ function App() {
         <Route path='/myitem' element={<MyItems></MyItems>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
-
+        <ToastContainer></ToastContainer>
     </div>
   );
 }

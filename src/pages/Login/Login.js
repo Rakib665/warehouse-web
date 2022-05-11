@@ -4,6 +4,7 @@ import { useSendEmailVerification, useSignInWithEmailAndPassword } from 'react-f
 import auth from '../../firebase.init';
 import Loading from '../Loading/oading';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import { toast } from 'react-toastify';
 
 
 
@@ -70,7 +71,7 @@ const Login = () => {
             <p>If you are a new user? <Link to="/register" className='text-primary pe-auto text-decoration-none' >Please Register</Link> </p>
             <p>If email is not verify? <button className='btn btn-link text-primary pe-auto text-decoration-none' onClick={async () => {
           await sendEmailVerification();
-          alert('Sent email');
+          toast('Sent email');
         }}>Verify Email</button> </p>
 
             <SocialLogin> </SocialLogin>
