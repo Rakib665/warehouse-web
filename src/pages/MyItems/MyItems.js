@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Loading from '../Loading/oading';
 
@@ -14,9 +15,9 @@ const MyItems = () => {
     }
     let email;
     email = user?.email
-    // console.log(email)
+    console.log(email)
     useEffect(() => {
-        fetch(`http://localhost:5000/myItems?email=${email}`)
+        fetch(`http://localhost:5000/inventory`)
             .then(res => res.json())
             .then(data => setItems(data))
     }, [email])
@@ -28,7 +29,7 @@ const MyItems = () => {
 
         if (proceed) {
 
-            fetch(`https://sleepy-springs-76170.herokuapp.com/myItems/${id}`, {
+            fetch(`https://sleepy-springs-76170.herokuapp.com/inventory/${id}`, {
                 method: 'DELETE',
                 headers : { 
                     'Content-Type': 'application/json',
@@ -41,7 +42,7 @@ const MyItems = () => {
                     const remaining = items.filter(item => item._id !== id)
 
                     setItems(remaining)
-                    alert('delete successfully')
+                    toast('delete successfully')
                 })
 
 

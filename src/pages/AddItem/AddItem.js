@@ -1,9 +1,12 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
 
 
 const AddItem = () => {
+    const [user] = useAuthState(auth)
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
         fetch(`https://sleepy-springs-76170.herokuapp.com/inventory/`,{
@@ -38,6 +41,9 @@ const AddItem = () => {
                 <br />
                 <input className='mb-3 w-50' placeholder='Quantity' type="text" {...register("quantity")} />
                 <br />
+                <input className='mb-3 w-50'  type="email" {...register("email")}  value={user?.email} disabled/>
+                <br />
+                
                 <input className='mb-3' type="submit" value='Add Service' />
 
                 </form>
