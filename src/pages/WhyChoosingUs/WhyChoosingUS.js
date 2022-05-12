@@ -14,7 +14,7 @@ const OurServices = () => {
                     <h2 className='text-center text-light'>We are Creative and Professional</h2>
                 </div>
                 <div className='details mb-2'>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur quaerat quisquam sapiente veritatis minus, iste et, numquam, officiis labore distinctio asperiores at? Quae blanditiis, nam rem ullam alias accusantium debitis dolores culpa consectetur distinctio harum quia nobis aliquid. Laborum, quaerat?</p>
+                    <p>Always we are give hundred percent effort for our client.We think each client is more important.We always hear client speech.And always try to give hundred percent  perfect quality product.</p>
                 </div>
                 <div className='p-2 expertness mb-sm-1'>
                     <h3 className='txt'><FontAwesomeIcon icon={faAlignRight} className='me-2 '/> Honest And Dependable</h3>
